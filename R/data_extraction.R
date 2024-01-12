@@ -81,7 +81,7 @@ get_data_extraction <- function() {
     
 }
 
-get_data_upload <- function() {
+get_data_upload <- function(data) {
     
     # Data Upload to BigQuery ----
     
@@ -100,7 +100,7 @@ get_data_upload <- function() {
     
     job <- bq_perform_upload(
         x = bq_table("chromatic-tree-410802", "schedule_test_r", "sample_data"),
-        values            = sample_data_tbl,
+        values            = data,
         write_disposition = "WRITE_APPEND", 
         quiet             = FALSE
         #fields = list(column1 = bq_field(type = "string"), column2 = bq_field(type = "integer"))
